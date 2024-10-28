@@ -1,10 +1,10 @@
-module github.com/arthurshafikov/cryptobot-sdk-golang
+module github.com/beshenkaD/cryptobot-sdk-golang
 
-go 1.18
+go 1.23.1
 
 require (
 	github.com/h2non/gock v1.2.0
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.9.0
 )
 
 require (
