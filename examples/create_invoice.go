@@ -54,7 +54,7 @@ func showInvoiceInfo(invoice *cryptobot.Invoice) {
 		invoice.Asset,
 		invoice.Amount,
 		invoice.Fee,
-		invoice.PayUrl,
+		invoice.PayURL,
 		invoice.Description,
 		invoice.CreatedAt,
 		invoice.UsdRate,
@@ -67,6 +67,6 @@ func showInvoiceInfo(invoice *cryptobot.Invoice) {
 		invoice.HiddenMessage,
 		invoice.Payload,
 		invoice.PaidBtnName,
-		invoice.PaidBtnUrl,
+		invoice.PaidBtnURL,
 	)
 }

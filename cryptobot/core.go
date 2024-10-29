@@ -11,6 +11,9 @@ const (
 	USDT = "USDT"
 	USDC = "USDC"
 	BUSD = "BUSD"
+	LTC  = "LTC"
+	BNB  = "BNB"
+	TRX  = "TRX"
 
 	InvoiceViewItemPaidBtnName    = "viewItem"
 	InvoiceOpenChannelPaidBtnName = "openChannel"
@@ -50,7 +53,7 @@ type Invoice struct {
 	Fee string `json:"fee"`
 
 	// URL should be presented to the user to pay the invoice.
-	PayUrl string `json:"pay_url"`
+	PayURL string `json:"pay_url"`
 
 	// Optional. Description for this invoice.
 	Description string `json:"description"`
@@ -89,7 +92,7 @@ type Invoice struct {
 	PaidBtnName string `json:"paid_btn_name"`
 
 	// Optional. URL of the button.
-	PaidBtnUrl string `json:"paid_btn_url"`
+	PaidBtnURL string `json:"paid_btn_url"`
 }
 
 type Transfer struct {
@@ -113,4 +116,30 @@ type Transfer struct {
 
 	// Optional. Comment for this transfer.
 	Comment string `json:"comment"`
+}
+
+type Check struct {
+	// Unique ID for this check.
+	ID int64 `json:"check_id"`
+
+	// Hash of the check.
+	Hash string `json:"hash"`
+
+	// Cryptocurrency alphabetic code. Currently, can be “USDT”, “TON”, “BTC”, “ETH”, “LTC”, “BNB”, “TRX” and “USDC” (and “JET” for testnet).
+	Asset string `json:"asset"`
+
+	// Amount of the check in float.
+	Amount string `json:"amount"`
+
+	// URL should be provided to the user to activate the check.
+	BotCheckURL string `json:"bot_check_url"`
+
+	// Status of the check, can be “active” or “activated”.
+	Status string `json:"status"`
+
+	// Date the check was created in ISO 8601 format.
+	CreatedAt string `json:"created_at"`
+
+	// Date the check was activated in ISO 8601 format.
+	ActivatedAt string `json:"activated_at"`
 }

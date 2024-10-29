@@ -14,7 +14,7 @@ var expectedInvoice = Invoice{
 	Asset:           USDT,
 	Amount:          "100",
 	Fee:             "2",
-	PayUrl:          "some-pay-url",
+	PayURL:          "some-pay-url",
 	Description:     "some description",
 	CreatedAt:       "2022-11-24T05:29:38.495Z",
 	UsdRate:         "usdRate",
@@ -27,7 +27,7 @@ var expectedInvoice = Invoice{
 	HiddenMessage:   "some message",
 	Payload:         "some payload",
 	PaidBtnName:     InvoiceCallbackPaidBtnName,
-	PaidBtnUrl:      "btn url",
+	PaidBtnURL:      "btn url",
 }
 
 func TestCreateInvoice(t *testing.T) {

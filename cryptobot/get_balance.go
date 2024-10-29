@@ -9,13 +9,14 @@ type getBalanceResponse struct {
 
 type Balance []BalanceAsset
 
-// for example cryptobot.BalanceAsset{Available:"0", CurrencyCode:"BTC"}
+// BalanceAsset - for example cryptobot.BalanceAsset{Available:"0", CurrencyCode:"BTC"}
 type BalanceAsset struct {
 	Available    string `json:"available"`
 	CurrencyCode string `json:"currency_code"`
+	OnHold       string `json:"onhold"`
 }
 
-// Use this method to get a balance of your app. Returns slice of BalanceAssets.
+// GetBalance - Use this method to get a balance of your app. Returns slice of BalanceAssets.
 func (c *Client) GetBalance() (Balance, error) {
 	responseBodyReader, err := c.request("getBalance", nil)
 	if err != nil {
