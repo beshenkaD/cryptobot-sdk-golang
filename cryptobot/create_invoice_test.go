@@ -13,7 +13,7 @@ var expectedInvoice = Invoice{
 	Hash:            "someHash",
 	Asset:           USDT,
 	Amount:          "100",
-	FeeAmount:       2,
+	FeeAmount:       "2",
 	BotInvoiceURL:   "some-pay-url",
 	Description:     "some description",
 	CreatedAt:       "2022-11-24T05:29:38.495Z",
