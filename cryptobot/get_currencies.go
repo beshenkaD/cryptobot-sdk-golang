@@ -19,7 +19,7 @@ type Currency struct {
 	IsFiat       bool   `json:"is_fiat"`
 	IsStablecoin bool   `json:"is_stablecoin"`
 	Name         string `json:"name"`
-	Url          string `json:"url"`
+	URL          string `json:"url"`
 }
 
 // Use this method to get a list of supported currencies. Returns slice of currencies.
@@ -37,7 +37,6 @@ func (c *Client) GetCurrencies() (Currencies, error) {
 
 	if response.Ok {
 		return response.Result, nil
-	} else {
-		return nil, fmt.Errorf("getCurrencies request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 	}
+	return nil, fmt.Errorf("getCurrencies request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 }

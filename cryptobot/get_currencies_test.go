@@ -15,7 +15,7 @@ func TestGetCurrencies(t *testing.T) {
 			Decimals:     8,
 			IsBlockchain: true,
 			Name:         "Bitcoin",
-			Url:          "https://bitcoin.org/",
+			URL:          "https://bitcoin.org/",
 		},
 		{
 			Code:     "USD",

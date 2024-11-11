@@ -68,7 +68,6 @@ func (c *Client) GetInvoices(getInvoicesRequest *GetInvoicesRequest) ([]Invoice,
 
 	if response.Ok {
 		return response.Result.Items, nil
-	} else {
-		return nil, fmt.Errorf("getInvoices request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 	}
+	return nil, fmt.Errorf("getInvoices request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 }

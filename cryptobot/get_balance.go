@@ -31,7 +31,6 @@ func (c *Client) GetBalance() (Balance, error) {
 
 	if response.Ok {
 		return response.Result, nil
-	} else {
-		return nil, fmt.Errorf("getBalance request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 	}
+	return nil, fmt.Errorf("getBalance request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 }

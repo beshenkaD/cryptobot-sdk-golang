@@ -33,7 +33,6 @@ func (c *Client) GetExchangeRates() (ExchangeRates, error) {
 
 	if response.Ok {
 		return response.Result, nil
-	} else {
-		return nil, fmt.Errorf("getExchangeRates request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 	}
+	return nil, fmt.Errorf("getExchangeRates request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 }

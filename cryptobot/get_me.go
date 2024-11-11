@@ -27,7 +27,6 @@ func (c *Client) GetMe() (*AppInfo, error) {
 
 	if response.Ok {
 		return &response.Result, nil
-	} else {
-		return nil, fmt.Errorf("getMe request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 	}
+	return nil, fmt.Errorf("getMe request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 }

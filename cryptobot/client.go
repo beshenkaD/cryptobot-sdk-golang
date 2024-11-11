@@ -51,16 +51,15 @@ func NewClient(options Options) *Client {
 	return c
 }
 
-func (c *Client) getRequestUrl() string {
+func (c *Client) getRequestURL() string {
 	if c.testingMode {
 		return testnetAPIURL
-	} else {
-		return mainnetAPIURL
 	}
+	return mainnetAPIURL
 }
 
 func (c *Client) request(path string, queryModifierFunc func(q url.Values) url.Values) (io.ReadCloser, error) {
-	req, err := http.NewRequest(http.MethodGet, c.getRequestUrl()+path, nil)
+	req, err := http.NewRequest(http.MethodGet, c.getRequestURL()+path, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error while creating a request: %w", err)
 	}

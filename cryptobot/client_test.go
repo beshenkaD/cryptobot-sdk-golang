@@ -3,7 +3,7 @@ package cryptobot
 import (
 	"bytes"
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"testing"
@@ -28,8 +28,8 @@ func TestGetRequestUrl(t *testing.T) {
 	testnetClient := &Client{testingMode: true}
 	mainnetClient := &Client{}
 
-	require.Equal(t, testnetAPIURL, testnetClient.getRequestUrl())
-	require.Equal(t, mainnetAPIURL, mainnetClient.getRequestUrl())
+	require.Equal(t, testnetAPIURL, testnetClient.getRequestURL())
+	require.Equal(t, mainnetAPIURL, mainnetClient.getRequestURL())
 }
 
 func TestRequest(t *testing.T) {
@@ -45,7 +45,7 @@ func TestRequest(t *testing.T) {
 	responseBodyReader, err := c.request("somePath", nil)
 	require.NoError(t, err)
 
-	body, err := ioutil.ReadAll(responseBodyReader)
+	body, err := io.ReadAll(responseBodyReader)
 	require.NoError(t, err)
 	require.Equal(t, bodyContent, string(body))
 }
@@ -69,7 +69,7 @@ func TestRequestModifiedResponse(t *testing.T) {
 	})
 	require.NoError(t, err)
 
-	body, err := ioutil.ReadAll(responseBodyReader)
+	body, err := io.ReadAll(responseBodyReader)
 	require.NoError(t, err)
 	require.Equal(t, "123", string(body))
 }

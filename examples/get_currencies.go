@@ -22,7 +22,7 @@ func getCurrencies(client *cryptobot.Client) {
 			currency.IsFiat,
 			currency.IsStablecoin,
 			currency.Name,
-			currency.Url,
+			currency.URL,
 		)
 	}
 }

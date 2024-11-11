@@ -29,7 +29,7 @@ type CreateInvoiceRequest struct {
 
 	// Optional. Required if paid_btn_name is used.URL to be opened when the button is pressed.
 	// You can set any success link (for example, a link to your bot). Starts with https or http.
-	PaidBtnUrl string `json:"paid_btn_url"`
+	PaidBtnURL string `json:"paid_btn_url"`
 
 	// Optional. Any data you want to attach to the invoice (for example, user ID, payment ID, ect). Up to 4kb.
 	Payload string `json:"payload"`
@@ -63,8 +63,8 @@ func (c *Client) CreateInvoice(createInvoiceRequest CreateInvoiceRequest) (*Invo
 		if createInvoiceRequest.PaidBtnName != "" {
 			q.Add("paid_btn_name", createInvoiceRequest.PaidBtnName)
 		}
-		if createInvoiceRequest.PaidBtnUrl != "" {
-			q.Add("paid_btn_url", createInvoiceRequest.PaidBtnUrl)
+		if createInvoiceRequest.PaidBtnURL != "" {
+			q.Add("paid_btn_url", createInvoiceRequest.PaidBtnURL)
 		}
 		if createInvoiceRequest.Payload != "" {
 			q.Add("payload", createInvoiceRequest.Payload)
@@ -95,7 +95,6 @@ func (c *Client) CreateInvoice(createInvoiceRequest CreateInvoiceRequest) (*Invo
 
 	if response.Ok {
 		return &response.Result, nil
-	} else {
-		return nil, fmt.Errorf("createInvoice request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 	}
+	return nil, fmt.Errorf("createInvoice request error: code - %v, name - %s", response.Error.Code, response.Error.Name)
 }
