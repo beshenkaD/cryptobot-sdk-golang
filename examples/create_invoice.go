@@ -14,7 +14,7 @@ func createInvoice(client *cryptobot.Client) {
 		Description:    "Description for the user",
 		HiddenMessage:  "After invoice is paid user will see this message",
 		PaidBtnName:    "", // optional. one of these viewItem, openChannel, openBot, callback
-		PaidBtnUrl:     "", // URL to be opened when the PaidBtn is pressed
+		PaidBtnURL:     "", // URL to be opened when the PaidBtn is pressed
 		Payload:        "any payload we need in out application",
 		AllowComments:  false,  // Allow a user to add a comment to the payment. Default is true
 		AllowAnonymous: false,  // Allow a user to pay the invoice anonymously. Default is true.
@@ -33,7 +33,7 @@ func showInvoiceInfo(invoice *cryptobot.Invoice) {
 		"Hash: %s\n"+
 		"Asset: %s\n"+
 		"Amount: %s\n"+
-		"Fee: %s\n"+
+		"Fee: %d\n"+
 		"PayUrl: %s\n"+
 		"Description: %s\n"+
 		"CreatedAt: %s\n"+
@@ -53,11 +53,11 @@ func showInvoiceInfo(invoice *cryptobot.Invoice) {
 		invoice.Hash,
 		invoice.Asset,
 		invoice.Amount,
-		invoice.Fee,
-		invoice.PayURL,
+		invoice.FeeAmount,
+		invoice.BotInvoiceURL,
 		invoice.Description,
 		invoice.CreatedAt,
-		invoice.UsdRate,
+		invoice.PaidUSDRate,
 		invoice.AllowComments,
 		invoice.AllowAnonymous,
 		invoice.ExpirationDate,
