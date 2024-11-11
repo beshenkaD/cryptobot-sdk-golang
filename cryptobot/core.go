@@ -68,7 +68,7 @@ type Invoice struct {
 	FeeAsset string `json:"fee_asset"`
 
 	// Optional. Amount of service fees charged when the invoice was paid. Available only if status is “paid”.
-	FeeAmount int64 `json:"fee_amount"`
+	FeeAmount string `json:"fee_amount"`
 
 	// URL should be provided to the user to pay the invoice.
 	BotInvoiceURL string `json:"bot_invoice_url"`
